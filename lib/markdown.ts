@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-export type ContentKind = "guidance" | "projects";
+export type ContentKind = "guidance" | "projects" | "alumni";
 
 const contentRoot = path.join(process.cwd(), "content");
 
@@ -11,8 +11,8 @@ export function listMarkdownSlugs(kind: ContentKind): string[] {
   if (!fs.existsSync(dir)) return [];
   return fs
     .readdirSync(dir)
-    .filter((f) => f.endsWith(".md"))
-    .map((f) => path.basename(f, ".md"));
+    .filter((f) => f.endsWith(".md")) 
+    .map((f) => path.basename(f, ".md")); 
 }
 
 export function readMarkdownFile(kind: ContentKind, slug: string) {

@@ -1,7 +1,24 @@
-import { alumniProfiles } from "@/data/alumni";
+import { listMarkdownSlugs,readMarkdownFile } from "@/lib/markdown";
 import { getApiBaseUrl } from "@/lib/api/client";
+import { MarkdownBody } from "@/components/MarkdownBody";
 
 export default function AlumniPage() {
+  const alumniProfiles = listMarkdownSlugs("alumni")
+  .map((slug) => { const doc = readMarkdownFile("alumni",slug);
+  if(!doc) return null;
+
+return{
+  id: slug,
+  name: String(doc.data.name ?? slug),
+  cohort: String(doc.data.cohort ?? ""),
+  focus: String(doc.data.focus ?? ""),
+  path: String(doc.data.path ?? "其他"),
+  bio: doc.content,
+  contact: String(doc.data.contact ?? ""),
+  };
+})
+.filter((profile)=> profile !==null);
+
   return (
     <div className="space-y-10">
       <header className="lab-glass rounded-3xl px-6 py-8 sm:px-8">
@@ -29,7 +46,9 @@ export default function AlumniPage() {
             <p className="mt-1 text-sm text-[#6e6e73]">
               {a.cohort} · {a.focus}
             </p>
-            <p className="mt-4 text-sm leading-relaxed text-[#424245]">{a.bio}</p>
+            <div className="mt-4 text-sm leading-relaxed text-[#424245]">
+              <MarkdownBody content={a.bio} />
+            </div>
             <div className="mt-4 rounded-xl border border-dashed border-black/15 bg-black/[0.02] p-3">
               <p className="lab-chip text-[#6e6e73]">contact</p>
               <p className="mt-1 font-mono text-sm text-[#1d1d1f]">{a.contact}</p>
