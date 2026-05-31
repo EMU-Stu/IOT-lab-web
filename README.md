@@ -27,6 +27,7 @@ npm run dev
 2. 在对应目录新增或编辑 Markdown：
    - 毕业路径：`content/guidance/*.md`（文件名即 URL 中的 `slug`，如 `job.md` → `/guidance/job`）
    - 项目说明：`content/projects/*.md`
+   - 学长学姐分享: `content/alumni/*.md`
 3. 在文章顶部使用 YAML front matter 写标题，例如：
 
 ```yaml
