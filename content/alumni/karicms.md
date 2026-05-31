@@ -4,6 +4,7 @@ cohort: 物联网工程专业 物联B221
 focus: 软件开发、嵌入式、机器学习等
 path: 留学
 contact: 微信：18124161120
+github: https://github.com/karicms
 ---
 本科：应急管理大学 物联网工程专业（2022-2026）
 

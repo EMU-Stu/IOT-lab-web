@@ -15,6 +15,7 @@ return{
   path: String(doc.data.path ?? "其他"),
   bio: doc.content,
   contact: String(doc.data.contact ?? ""),
+  github: String(doc.data.github ?? ""),
   };
 })
 .filter((profile)=> profile !==null);
@@ -49,9 +50,29 @@ return{
             <div className="mt-4 text-sm leading-relaxed text-[#424245]">
               <MarkdownBody content={a.bio} />
             </div>
-            <div className="mt-4 rounded-xl border border-dashed border-black/15 bg-black/[0.02] p-3">
-              <p className="lab-chip text-[#6e6e73]">contact</p>
-              <p className="mt-1 font-mono text-sm text-[#1d1d1f]">{a.contact}</p>
+          <div className="mt-4 rounded-xl border border-dashed border-black/15 bg-black/[0.02] p-3 space-y-3">
+                {/* 联系方式部分 */}
+                {a.contact && (
+                  <div>
+                    <p className="lab-chip text-[#6e6e73]">contact</p>
+                    <p className="mt-1 font-mono text-sm text-[#1d1d1f]">{a.contact}</p>
+                  </div>
+                )}
+
+                {/* GitHub 超链接部分 */}
+                {a.github && (
+                  <div>
+                    <p className="lab-chip text-[#6e6e73]">github</p>
+                    <p className="mt-1 font-mono text-sm">
+                      <a 
+                        href={a.github.startsWith('http') ? a.github : `https://github.com/${a.github}`}
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-[#0071e3] hover:underline break-all"
+                      >{a.github}</a>
+                    </p>
+                  </div>
+                )}
             </div>
           </section>
         ))}

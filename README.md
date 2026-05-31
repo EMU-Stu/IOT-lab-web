@@ -37,4 +37,17 @@ description: 简短摘要（可选）
 ```
 
 4. 推送分支并发起 **Pull Request**，维护者 Review 通过后合并，站点重新部署即可上线。
-
+5. 如需添加个人信息在学长学姐页面，请在 `content/alumni` 目录下新增 Markdown 文件。格式为：
+```yaml
+---
+name: "张三"
+path: "就业 · 字节跳动"
+cohort: 在学校的专业班级"
+focus: "计算机视觉 / 智能机器人"
+contact: "zhangsan@bytedance.com"
+github: ""
+---
+张三学长在实验室期间主要负责 LiDAR 点云数据处理算法的开发。
+为人非常热情，指导了多位本科生的毕业设计，毕业后顺利斩获大厂 Offer。
+欢迎各位学弟学妹邮件咨询关于求职和简历修改的问题！
+```
