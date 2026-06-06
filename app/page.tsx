@@ -9,10 +9,10 @@ const modules = [
     hint: "PATHS",
   },
   {
-    href: "/projects",
-    title: "项目复刻",
-    subtitle: "历年源码与文档索引",
-    hint: "REPO",
+    href: "/blog",
+    title: "技术博客",
+    subtitle: "实验室成员的技术分享与实战记录",
+    hint: "BLOG",
   },
   {
     href: "/alumni",
@@ -88,7 +88,7 @@ export default function HomePage() {
           </li>
           <li className="flex gap-2">
             <span className="font-mono text-[#0071e3]">02</span>
-            在「项目复刻」里找到往届项目入口，按文档把环境跑起来。
+            浏览「技术博客」，了解实验室成员的技术分享与项目实践。
           </li>
           <li className="flex gap-2">
             <span className="font-mono text-[#0071e3]">03</span>

@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-export type ContentKind = "guidance" | "projects" | "alumni";
+export type ContentKind = "guidance" | "alumni";
 
 const contentRoot = path.join(process.cwd(), "content");
 

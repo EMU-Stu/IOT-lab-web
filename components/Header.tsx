@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const nav = [
   { href: "/guidance", label: "未来指引" },
-  { href: "/projects", label: "项目复刻" },
+  { href: "/blog", label: "技术博客" },
   { href: "/alumni", label: "学长学姐" },
 ];
 

@@ -18,6 +18,10 @@
 # production
 /build
 
+# blog content fetched at build time
+/content/blog
+/public/blog-images
+
 # misc
 .DS_Store
 *.pem
