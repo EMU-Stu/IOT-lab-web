@@ -49,9 +49,10 @@ function autoExcerpt(body: string): string {
 }
 
 function normalizeBlogImagePaths(content: string): string {
+  const prefix = siteConfig.basePath;
   return content.replace(
     /!\[([^\]]*)\]\((?!https?:\/\/)(\.\/)?images\/([^)]+)\)/g,
-    "![$1](/blog-images/$3)",
+    `![$1](${prefix}/blog-images/$3)`,
   );
 }
 
@@ -85,11 +86,11 @@ export function listLabBlogPosts(): BlogPost[] {
     .filter((f) => f.endsWith(".md"))
     .map((f) => {
       const slug = path.basename(f, ".md");
-      const raw = fs.readFileSync(path.join(articlesDir, f), "utf8");
+      const raw = fs.readFileSync(path.join(articlesDir, f), "utf8"); // 读取博客文件
       return parseBlogFile(slug, raw);
     })
     .filter((post): post is BlogPost => post !== null)
-    .sort((a, b) => b.date.localeCompare(a.date));
+    .sort((a, b) => b.date.localeCompare(a.date)); // 按日期降序排列
 }
 
 export function readLabBlogPost(slug: string): BlogPost | null {

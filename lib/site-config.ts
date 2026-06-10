@@ -1,5 +1,11 @@
+export const repoName = "IOT-lab-web";
+
+const isGithubPages = process.env.GITHUB_PAGES === "true";
+
 export const siteConfig = {
   name: "物联网实验室（AKA 数字孪生暨虚拟现实实验室）",
+  /** GitHub Pages 子路径前缀，与 next.config.ts basePath 保持一致 */
+  basePath: isGithubPages ? `/${repoName}` : "",
   tagline: "面向新生的实验室导览：路径选择、技术博客、学长学姐联络。",
   description: "实验室新生指南与资源门户",
   /** 与 EMU-Stu-Blog frontmatter 中 labs 字段对应 */

@@ -1,7 +1,5 @@
 import type { NextConfig } from "next";
-
-const repoName = "IOT-lab-web";
-const isGithubPages = process.env.GITHUB_PAGES === "true";
+import { siteConfig } from "./lib/site-config";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -10,8 +8,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: isGithubPages ? `/${repoName}` : "",
-  assetPrefix: isGithubPages ? `/${repoName}/` : undefined,
+  basePath: siteConfig.basePath,
+  assetPrefix: siteConfig.basePath ? `${siteConfig.basePath}/` : undefined,
 };
 
 export default nextConfig;

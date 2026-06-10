@@ -19,12 +19,12 @@ try {
   if (existsSync(path.join(BLOG_DIR, ".git"))) {
     console.log(`[fetch-blog] 已存在 content/blog/，拉取最新 ${BRANCH} …`);
     git(["fetch", "--depth", "1", "origin", BRANCH], { cwd: BLOG_DIR });
-    git(["reset", "--hard", `origin/${BRANCH}`], { cwd: BLOG_DIR });
+    git(["reset", "--hard", `origin/${BRANCH}`], { cwd: BLOG_DIR }); // 只拉取指定分支，避免拉取过多历史记录
   } else {
     console.log(`[fetch-blog] 克隆 ${REPO} → content/blog/ …`);
-    rmSync(BLOG_DIR, { recursive: true, force: true });
-    mkdirSync(path.dirname(BLOG_DIR), { recursive: true });
-    git(["clone", "--depth", "1", "--branch", BRANCH, REPO, BLOG_DIR]);
+    rmSync(BLOG_DIR, { recursive: true, force: true }); // 删除旧的博客目录
+    mkdirSync(path.dirname(BLOG_DIR), { recursive: true }); // 创建新的博客目录
+    git(["clone", "--depth", "1", "--branch", BRANCH, REPO, BLOG_DIR]); // 克隆指定分支的博客仓库
   }
 
   rmSync(IMAGES_DST, { recursive: true, force: true });
