@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ContributionHeatmap } from "@/components/ContributionHeatmap";
 import { siteConfig } from "@/lib/site-config";
 
 const modules = [
@@ -48,6 +49,8 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      <ContributionHeatmap />
 
       <section className="space-y-6">
         <div className="flex items-end justify-between gap-4">
