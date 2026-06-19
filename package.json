@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "fetch-blog": "node scripts/fetch-blog.mjs",
-    "predev": "node scripts/fetch-blog.mjs",
-    "prebuild": "node scripts/fetch-blog.mjs",
+    "generate-stats": "node scripts/generate-stats.mjs",
+    "predev": "node scripts/fetch-blog.mjs && node scripts/generate-stats.mjs",
+    "prebuild": "node scripts/fetch-blog.mjs && node scripts/generate-stats.mjs",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",

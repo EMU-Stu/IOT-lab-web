@@ -21,6 +21,7 @@
 # blog content fetched at build time
 /content/blog
 /public/blog-images
+/public/lab-stats.json
 
 # misc
 .DS_Store
