@@ -56,6 +56,27 @@ function normalizeBlogImagePaths(content: string): string {
   );
 }
 
+/** lab-web 路由为 {basePath}/blog/[slug]，兼容 EMU 与个人站链接写法 */
+function normalizeBlogInternalLinks(content: string): string {
+  const prefix = siteConfig.basePath;
+  const toLab = (_: string, slug: string) => `](${prefix}/blog/${slug})`;
+  return content
+    .replace(/\]\(\/article\?slug=([a-z0-9-]+)\)/gi, toLab)
+    .replace(/\]\(\/blog\/([a-z0-9-]+)\)/gi, toLab);
+}
+
+/** YAML 中未加引号的 date 会被 gray-matter 解析为 Date，需统一转成 YYYY-MM-DD */
+function normalizeFrontmatterDate(raw: unknown): string {
+  if (raw instanceof Date && !Number.isNaN(raw.getTime())) {
+    return raw.toISOString().slice(0, 10);
+  }
+  if (typeof raw === "string") {
+    const match = raw.trim().match(/^(\d{4}-\d{2}-\d{2})/);
+    if (match) return match[1];
+  }
+  return new Date().toISOString().slice(0, 10);
+}
+
 function parseBlogFile(slug: string, raw: string): BlogPost | null {
   const { data, content: rawContent } = matter(raw);
   if (!belongsToLab(data as Record<string, unknown>)) return null;
@@ -73,8 +94,8 @@ function parseBlogFile(slug: string, raw: string): BlogPost | null {
       (typeof data.excerpt === "string" && data.excerpt.trim()) || autoExcerpt(body),
     category: typeof data.category === "string" ? data.category : "技术沉淀",
     author: typeof data.author === "string" ? data.author : "Anonymous",
-    date: typeof data.date === "string" ? data.date : new Date().toISOString().slice(0, 10),
-    content: normalizeBlogImagePaths(body),
+    date: normalizeFrontmatterDate(data.date),
+    content: normalizeBlogInternalLinks(normalizeBlogImagePaths(body)),
   };
 }
 
