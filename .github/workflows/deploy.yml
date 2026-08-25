@@ -36,8 +36,8 @@ jobs:
         env:
           GITHUB_PAGES: "true"
           NEXT_PUBLIC_BASE_PATH: /IOT-lab-web
-          NEXT_PUBLIC_SITE_URL: https://emu-stu.github.io/IOT-lab-web
-          NEXT_PUBLIC_REPO_URL: https://github.com/EMU-Stu/IOT-lab-web
+          NEXT_PUBLIC_SITE_URL: https://uem-stu.github.io/IOT-lab-web
+          NEXT_PUBLIC_REPO_URL: https://github.com/UEM-Stu/IOT-lab-web
 
       - uses: actions/upload-pages-artifact@v3
         with:

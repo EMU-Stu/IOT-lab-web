@@ -1,4 +1,4 @@
-// 构建 / 开发前自动拉取 EMU-Stu-Blog 到 content/blog，并同步图片到 public/blog-images。
+// 构建 / 开发前自动拉取 UEM-Stu-Blog 到 content/blog，并同步图片到 public/blog-images。
 import { cpSync, existsSync, mkdirSync, readdirSync, rmSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import path from "node:path";
@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
 
-const REPO = process.env.BLOG_REPO ?? "https://github.com/EMU-Stu/EMU-Stu-Blog.git";
+const REPO = process.env.BLOG_REPO ?? "https://github.com/UEM-Stu/UEM-Stu-Blog.git";
 const BRANCH = process.env.BLOG_BRANCH ?? "main";
 const BLOG_DIR = path.join(root, "content", "blog");
 const IMAGES_SRC = path.join(BLOG_DIR, "articles", "images");
