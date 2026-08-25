@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-`predev` 会自动从 [EMU-Stu-Blog](https://github.com/EMU-Stu/EMU-Stu-Blog) 拉取最新文章到 `content/blog/`。
+`predev` 会自动从 [UEM-Stu-Blog](https://github.com/UEM-Stu/UEM-Stu-Blog) 拉取最新文章到 `content/blog/`。
 
 浏览器打开 `http://localhost:3000`。
 
@@ -20,7 +20,7 @@ npm run dev
 | `NEXT_PUBLIC_SITE_URL` | 站点绝对地址，用于 metadata |
 | `NEXT_PUBLIC_REPO_URL` | GitHub 仓库地址，用于首页与页脚链接 |
 | `NEXT_PUBLIC_BLOG_REPO_URL` | 博客内容仓库地址，用于说明链接 |
-| `BLOG_REPO` | 构建时 clone 的博客仓库 URL（默认 EMU-Stu-Blog） |
+| `BLOG_REPO` | 构建时 clone 的博客仓库 URL（默认 UEM-Stu-Blog） |
 | `BLOG_BRANCH` | 博客仓库分支（默认 `main`） |
 | `NEXT_PUBLIC_API_BASE_URL` | 后续接后端时填写，例如 `https://api.lab.example` |
 
@@ -37,9 +37,9 @@ npm run dev
    - 学长学姐：`content/alumni/*.md`
 3. 推送分支并发起 **Pull Request**，维护者 Review 通过后合并，站点重新部署即可上线。
 
-### 技术博客（EMU-Stu-Blog 仓库）
+### 技术博客（UEM-Stu-Blog 仓库）
 
-博客文章统一投稿到 [EMU-Stu-Blog](https://github.com/EMU-Stu/EMU-Stu-Blog)。本站 build 时自动拉取，并按 frontmatter 中的 `labs` 字段过滤，只展示本实验室（`IoT-Lab`）的文章。
+博客文章统一投稿到 [UEM-Stu-Blog](https://github.com/UEM-Stu/UEM-Stu-Blog)。本站 build 时自动拉取，并按 frontmatter 中的 `labs` 字段过滤，只展示本实验室（`IoT-Lab`）的文章。
 
 投稿时在 frontmatter 中标注所属实验室：
 >>>>>>> 23d5701 (技术博客从blog仓库里获取带有IOT-Lab的文章并展示在网站中)

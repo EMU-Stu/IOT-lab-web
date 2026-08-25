@@ -18,7 +18,7 @@ export default function BlogIndexPage() {
             target="_blank"
             rel="noreferrer"
           >
-            EMU-Stu-Blog
+            UEM-Stu-Blog
           </a>
           ，仅展示 frontmatter 中{" "}
           <code className="rounded bg-black/[0.06] px-1.5 py-0.5 font-mono text-xs">
@@ -31,7 +31,7 @@ export default function BlogIndexPage() {
       <div className="grid gap-4 sm:grid-cols-2">
         {posts.length === 0 ? (
           <p className="text-sm text-[#6e6e73]">
-            暂无本实验室文章。请在 EMU-Stu-Blog 投稿，并在 frontmatter 中添加{" "}
+            暂无本实验室文章。请在 UEM-Stu-Blog 投稿，并在 frontmatter 中添加{" "}
             <code className="rounded bg-black/[0.06] px-1.5 py-0.5 font-mono text-xs">
               labs: [{siteConfig.labCode}]
             </code>
