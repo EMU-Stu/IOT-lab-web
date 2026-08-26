@@ -26,8 +26,11 @@ function belongsToLab(data) {
 }
 
 function normalizeDate(raw) {
-  if (typeof raw !== "string" || !raw.trim()) return null; // 如果日期不是字符串或者为空，则返回 null
-  const match = raw.trim().match(/^(\d{4}-\d{2}-\d{2})/); // 匹配日期格式
+  if (raw instanceof Date && !Number.isNaN(raw.getTime())) {
+    return raw.toISOString().slice(0, 10);
+  }
+  if (typeof raw !== "string" || !raw.trim()) return null;
+  const match = raw.trim().match(/^(\d{4}-\d{2}-\d{2})/);
   return match ? match[1] : null;
 }
 
